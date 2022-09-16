@@ -21,7 +21,8 @@ const AddTutorial = () => {
 
   const saveTutorial = () => {
     const { title, description } = tutorial;
-
+    console.log("title: " + title);
+    console.log("description: " + description);
     dispatch(createTutorial(title, description))
       .then(data => {
         setTutorial({

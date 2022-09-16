@@ -110,7 +110,7 @@ const Tutorial = (props) => {
               <label>
                 <strong>Status:</strong>
               </label>
-              {currentTutorial.published ? "Published" : "Pending"}
+              {currentTutorial.published ? true : false}
             </div>
           </form>
 

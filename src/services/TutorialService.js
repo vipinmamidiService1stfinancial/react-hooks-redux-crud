@@ -1,7 +1,8 @@
-import http from "../http-common";
+import { axiosInstance } from "../http-common";
 
+const http = axiosInstance();
 const getAll = () => {
-  return http.get("/tutorials");
+  return http.get("/tutorials/getAllTutorials");
 };
 
 const get = id => {
@@ -9,7 +10,7 @@ const get = id => {
 };
 
 const create = data => {
-  return http.post("/tutorials", data);
+  return http.post("/tutorials/insertTutorial", data);
 };
 
 const update = (id, data) => {
@@ -25,7 +26,7 @@ const removeAll = () => {
 };
 
 const findByTitle = title => {
-  return http.get(`/tutorials?title=${title}`);
+  return http.get(`/tutorials/search/${title}`);
 };
 
 const TutorialService = {

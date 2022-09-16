@@ -4,11 +4,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './store';
+import { Auth0Provider } from '@auth0/auth0-react';
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
-  </Provider>,
+    <Auth0Provider
+      domain={process.env.REACT_APP_DOMAIN}
+      clientId={process.env.REACT_APP_CLIENTID}
+      redirectUri={window.location.origin}
+      //audience={process.env.REACT_APP_AUDIENCE}
+      audience="premier-program"
+      scope={process.env.REACT_APP_SCOPE}
+    >
+      <App />
+    </Auth0Provider>
+  </Provider >,
   document.getElementById('root')
 );
 
